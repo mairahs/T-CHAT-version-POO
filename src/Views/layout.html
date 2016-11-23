@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+	<head>
+		<title>T-chat</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="styles/reset.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+
+	</head>
+
+	<body>
+
+		<header>
+			<h1>Mon site - <?= $title ?></h1><!-- forme contractée pour faire un echo -->
+		</header>
+
+		<aside>
+			
+			<nav>
+					
+				<ul class="menu-salons">
+
+					<!-- on affiche ici le nom de chacun des salons grâce à un foreach -->
+					<?php foreach ($salons as $salon): ?><!-- ça aussi il faut le modifier car nous on a des objets et on ne les récupère plus pareil et on a salons et pas nomsSa -->
+					<!-- <li><a href="#salon-<?php echo $id; ?>"> -->
+					<li><a href="?controller=salons&action=affiche&id=<?= $salon ->getId() ?>"><?= $salon -> getNom();?></a></li>
+					<?php endforeach; ?>
+
+				</ul>
+
+					<a href="deconnexion.php" title="Se déconnecter de T-Chat">Déconnexion</a>
+					
+			</nav>
+				
+		</aside>
+
+		<main>
+
+			<?= $content ?>
+				
+		</main>
+
+	</body>
+
+</html>

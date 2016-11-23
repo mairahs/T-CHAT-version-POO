@@ -1,0 +1,16 @@
+	 
+			 <h2>Bienvenue sur le salon <?php echo $salon -> getNom(); ?></h2> 
+			<ol class ="messages">
+				 <?php foreach ($contenuSalon as $message): ?> 
+				<li><span class="personne"><?php echo htmlentities($message['pseudo']); ?></span> : <span class="message">"<?php echo htmlentities($message['corps']); ?>"</span></li> 
+				 <?php endforeach; ?> 
+			</ol>
+
+			<!-- J'envoie mon formulaire d'ajout de message sur la page courante cela va me permettre d'ajouter mes messages Ã  ce salon et pas Ã  un autre via l'id -->
+			<form class="form-message" action="salon.php?id=<?php echo $salon ->getId(); ?>" method="POST">
+
+				<textarea name ="corps"></textarea>
+				<input type="submit" class="button" value="Poster son message">
+				
+			</form>
+	
